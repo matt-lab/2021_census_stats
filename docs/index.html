@@ -1,0 +1,2380 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matthew Andreotta">
+<meta name="dcterms.date" content="2023-02-03">
+
+<title>Australian’s age and sex</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Australian’s age and sex</h1>
+<p class="subtitle lead">Data from the 2021 national census</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Matthew Andreotta </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 3, 2023</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>This webpage shares results from the the 2021 Australian census on age and sex. This data may be useful for building survey samples representative of Australians. In particular, <a href="#tbl-age-decades">Table&nbsp;1</a> describes the proportion of Australians across age categories and <a href="#tbl-sex">Table&nbsp;2</a> describes the proportion of Australians across sexes.</p>
+<p>Raw count data is provided in <a href="#tbl-counts">Table&nbsp;4</a>.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In 2021, the Australian Bureau of Statistics (ABS) conducted a census of Australians. Methodology can be found on the <a href="https://www.abs.gov.au/census/guide-census-data/census-methodology/2021">ABS’ website</a>. For age, respondents were asked the person’s date of birth or age. For sex, respondents were asked to select whether the person was: “male”, “female”, or “non-binary sex”.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> In this document, I have used the same terminology as the census.</p>
+</section>
+<section id="proportions" class="level1">
+<h1>Proportions</h1>
+<section id="age" class="level2">
+<h2 class="anchored" data-anchor-id="age">Age</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-age-decades" class="anchored">
+
+<div id="ybblpdzzds" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ybblpdzzds .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: hidden;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ybblpdzzds .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ybblpdzzds .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ybblpdzzds .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ybblpdzzds .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ybblpdzzds .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ybblpdzzds .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ybblpdzzds .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ybblpdzzds .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ybblpdzzds .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ybblpdzzds .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ybblpdzzds .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ybblpdzzds .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ybblpdzzds .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ybblpdzzds .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ybblpdzzds .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ybblpdzzds .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ybblpdzzds .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ybblpdzzds .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ybblpdzzds .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ybblpdzzds .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ybblpdzzds .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ybblpdzzds .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ybblpdzzds .gt_left {
+  text-align: left;
+}
+
+#ybblpdzzds .gt_center {
+  text-align: center;
+}
+
+#ybblpdzzds .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ybblpdzzds .gt_font_normal {
+  font-weight: normal;
+}
+
+#ybblpdzzds .gt_font_bold {
+  font-weight: bold;
+}
+
+#ybblpdzzds .gt_font_italic {
+  font-style: italic;
+}
+
+#ybblpdzzds .gt_super {
+  font-size: 65%;
+}
+
+#ybblpdzzds .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#ybblpdzzds .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ybblpdzzds .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ybblpdzzds .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ybblpdzzds .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ybblpdzzds .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ybblpdzzds .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table 1:  The total count and proportion of Australian’s age, categorised in decade-wide age groups. </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Age (Years)">Age (Years)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Total">Total</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Proportion (%)">Proportion (%)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Age_group" class="gt_row gt_right" style="font-weight: bold;">18-29</td>
+<td headers="Total" class="gt_row gt_right">3922048</td>
+<td headers="Percentage" class="gt_row gt_right">19.71</td></tr>
+    <tr><td headers="Age_group" class="gt_row gt_right" style="font-weight: bold;">30-40</td>
+<td headers="Total" class="gt_row gt_right">3691904</td>
+<td headers="Percentage" class="gt_row gt_right">18.55</td></tr>
+    <tr><td headers="Age_group" class="gt_row gt_right" style="font-weight: bold;">40-50</td>
+<td headers="Total" class="gt_row gt_right">3284811</td>
+<td headers="Percentage" class="gt_row gt_right">16.51</td></tr>
+    <tr><td headers="Age_group" class="gt_row gt_right" style="font-weight: bold;">50-60</td>
+<td headers="Total" class="gt_row gt_right">3152855</td>
+<td headers="Percentage" class="gt_row gt_right">15.85</td></tr>
+    <tr><td headers="Age_group" class="gt_row gt_right" style="font-weight: bold;">60-70</td>
+<td headers="Total" class="gt_row gt_right">2766567</td>
+<td headers="Percentage" class="gt_row gt_right">13.90</td></tr>
+    <tr><td headers="Age_group" class="gt_row gt_right" style="font-weight: bold;">70+</td>
+<td headers="Total" class="gt_row gt_right">3079624</td>
+<td headers="Percentage" class="gt_row gt_right">15.48</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sex" class="level2">
+<h2 class="anchored" data-anchor-id="sex">Sex</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-sex" class="anchored">
+
+<div id="echjbpdigr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#echjbpdigr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: hidden;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#echjbpdigr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#echjbpdigr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#echjbpdigr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#echjbpdigr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#echjbpdigr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#echjbpdigr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#echjbpdigr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#echjbpdigr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#echjbpdigr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#echjbpdigr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#echjbpdigr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#echjbpdigr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#echjbpdigr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#echjbpdigr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#echjbpdigr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#echjbpdigr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#echjbpdigr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#echjbpdigr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#echjbpdigr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#echjbpdigr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#echjbpdigr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#echjbpdigr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#echjbpdigr .gt_left {
+  text-align: left;
+}
+
+#echjbpdigr .gt_center {
+  text-align: center;
+}
+
+#echjbpdigr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#echjbpdigr .gt_font_normal {
+  font-weight: normal;
+}
+
+#echjbpdigr .gt_font_bold {
+  font-weight: bold;
+}
+
+#echjbpdigr .gt_font_italic {
+  font-style: italic;
+}
+
+#echjbpdigr .gt_super {
+  font-size: 65%;
+}
+
+#echjbpdigr .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#echjbpdigr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#echjbpdigr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#echjbpdigr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#echjbpdigr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#echjbpdigr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#echjbpdigr .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table 2:  The total count and proportion of Australian’s sex. </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Sex">Sex</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Total">Total</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Proportion (%)">Proportion (%)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Sex" class="gt_row gt_left" style="font-weight: bold;">Female</td>
+<td headers="Total" class="gt_row gt_right">10193732</td>
+<td headers="Percentage" class="gt_row gt_right">51.23</td></tr>
+    <tr><td headers="Sex" class="gt_row gt_left" style="font-weight: bold;">Male</td>
+<td headers="Total" class="gt_row gt_right">9704096</td>
+<td headers="Percentage" class="gt_row gt_right">48.77</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="age-and-sex" class="level2">
+<h2 class="anchored" data-anchor-id="age-and-sex">Age and Sex</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-sex-and-age" class="anchored">
+
+<div id="mwvdbwiiaw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#mwvdbwiiaw .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: hidden;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mwvdbwiiaw .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mwvdbwiiaw .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mwvdbwiiaw .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mwvdbwiiaw .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mwvdbwiiaw .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mwvdbwiiaw .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mwvdbwiiaw .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mwvdbwiiaw .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mwvdbwiiaw .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mwvdbwiiaw .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mwvdbwiiaw .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mwvdbwiiaw .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mwvdbwiiaw .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwvdbwiiaw .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mwvdbwiiaw .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mwvdbwiiaw .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwvdbwiiaw .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mwvdbwiiaw .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwvdbwiiaw .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mwvdbwiiaw .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwvdbwiiaw .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mwvdbwiiaw .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mwvdbwiiaw .gt_left {
+  text-align: left;
+}
+
+#mwvdbwiiaw .gt_center {
+  text-align: center;
+}
+
+#mwvdbwiiaw .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mwvdbwiiaw .gt_font_normal {
+  font-weight: normal;
+}
+
+#mwvdbwiiaw .gt_font_bold {
+  font-weight: bold;
+}
+
+#mwvdbwiiaw .gt_font_italic {
+  font-style: italic;
+}
+
+#mwvdbwiiaw .gt_super {
+  font-size: 65%;
+}
+
+#mwvdbwiiaw .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#mwvdbwiiaw .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mwvdbwiiaw .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mwvdbwiiaw .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mwvdbwiiaw .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mwvdbwiiaw .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mwvdbwiiaw .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table 3:  Sex of Australians as a proportion of each decade-wide age group. </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="2" colspan="1" style="font-weight: bold;" scope="col" id="Age">Age</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" style="font-weight: bold;" scope="colgroup" id="Proportion (%)">
+        <span class="gt_column_spanner">Proportion (%)</span>
+      </th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Female">Female</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Male">Male</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="age_group" class="gt_row gt_right" style="font-weight: bold;">18-29</td>
+<td headers="female" class="gt_row gt_right">49.37</td>
+<td headers="male" class="gt_row gt_right">50.63</td></tr>
+    <tr><td headers="age_group" class="gt_row gt_right" style="font-weight: bold;">30-40</td>
+<td headers="female" class="gt_row gt_right">51.08</td>
+<td headers="male" class="gt_row gt_right">48.92</td></tr>
+    <tr><td headers="age_group" class="gt_row gt_right" style="font-weight: bold;">40-50</td>
+<td headers="female" class="gt_row gt_right">50.78</td>
+<td headers="male" class="gt_row gt_right">49.22</td></tr>
+    <tr><td headers="age_group" class="gt_row gt_right" style="font-weight: bold;">50-60</td>
+<td headers="female" class="gt_row gt_right">51.11</td>
+<td headers="male" class="gt_row gt_right">48.89</td></tr>
+    <tr><td headers="age_group" class="gt_row gt_right" style="font-weight: bold;">60-70</td>
+<td headers="female" class="gt_row gt_right">51.67</td>
+<td headers="male" class="gt_row gt_right">48.33</td></tr>
+    <tr><td headers="age_group" class="gt_row gt_right" style="font-weight: bold;">70+</td>
+<td headers="female" class="gt_row gt_right">53.99</td>
+<td headers="male" class="gt_row gt_right">46.01</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="counts" class="level1">
+<h1>Counts</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-counts" class="anchored">
+
+<div id="juaptojxkg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#juaptojxkg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: hidden;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#juaptojxkg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#juaptojxkg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#juaptojxkg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#juaptojxkg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#juaptojxkg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#juaptojxkg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#juaptojxkg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#juaptojxkg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#juaptojxkg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#juaptojxkg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#juaptojxkg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#juaptojxkg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#juaptojxkg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#juaptojxkg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#juaptojxkg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#juaptojxkg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#juaptojxkg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#juaptojxkg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#juaptojxkg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#juaptojxkg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#juaptojxkg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#juaptojxkg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#juaptojxkg .gt_left {
+  text-align: left;
+}
+
+#juaptojxkg .gt_center {
+  text-align: center;
+}
+
+#juaptojxkg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#juaptojxkg .gt_font_normal {
+  font-weight: normal;
+}
+
+#juaptojxkg .gt_font_bold {
+  font-weight: bold;
+}
+
+#juaptojxkg .gt_font_italic {
+  font-style: italic;
+}
+
+#juaptojxkg .gt_super {
+  font-size: 65%;
+}
+
+#juaptojxkg .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#juaptojxkg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#juaptojxkg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#juaptojxkg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#juaptojxkg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#juaptojxkg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#juaptojxkg .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table"><caption>Table 4:  Total number of Australians by age and sex. </caption>
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Age (Years)">Age (Years)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Female">Female</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Male">Male</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" style="font-weight: bold;" scope="col" id="Total">Total</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">18</td>
+<td headers="Female" class="gt_row gt_right">138862</td>
+<td headers="Male" class="gt_row gt_right">145713</td>
+<td headers="Total" class="gt_row gt_right">284576</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">19</td>
+<td headers="Female" class="gt_row gt_right">139856</td>
+<td headers="Male" class="gt_row gt_right">146391</td>
+<td headers="Total" class="gt_row gt_right">286245</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">20</td>
+<td headers="Female" class="gt_row gt_right">146388</td>
+<td headers="Male" class="gt_row gt_right">154993</td>
+<td headers="Total" class="gt_row gt_right">301381</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">21</td>
+<td headers="Female" class="gt_row gt_right">152428</td>
+<td headers="Male" class="gt_row gt_right">160227</td>
+<td headers="Total" class="gt_row gt_right">312655</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">22</td>
+<td headers="Female" class="gt_row gt_right">153894</td>
+<td headers="Male" class="gt_row gt_right">160620</td>
+<td headers="Total" class="gt_row gt_right">314519</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">23</td>
+<td headers="Female" class="gt_row gt_right">156992</td>
+<td headers="Male" class="gt_row gt_right">162938</td>
+<td headers="Total" class="gt_row gt_right">319928</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">24</td>
+<td headers="Female" class="gt_row gt_right">163008</td>
+<td headers="Male" class="gt_row gt_right">168053</td>
+<td headers="Total" class="gt_row gt_right">331063</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">25</td>
+<td headers="Female" class="gt_row gt_right">167611</td>
+<td headers="Male" class="gt_row gt_right">173465</td>
+<td headers="Total" class="gt_row gt_right">341075</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">26</td>
+<td headers="Female" class="gt_row gt_right">174606</td>
+<td headers="Male" class="gt_row gt_right">178701</td>
+<td headers="Total" class="gt_row gt_right">353303</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">27</td>
+<td headers="Female" class="gt_row gt_right">177274</td>
+<td headers="Male" class="gt_row gt_right">178313</td>
+<td headers="Total" class="gt_row gt_right">355587</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">28</td>
+<td headers="Female" class="gt_row gt_right">180893</td>
+<td headers="Male" class="gt_row gt_right">178329</td>
+<td headers="Total" class="gt_row gt_right">359229</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">29</td>
+<td headers="Female" class="gt_row gt_right">184452</td>
+<td headers="Male" class="gt_row gt_right">178035</td>
+<td headers="Total" class="gt_row gt_right">362487</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">30</td>
+<td headers="Female" class="gt_row gt_right">189985</td>
+<td headers="Male" class="gt_row gt_right">182013</td>
+<td headers="Total" class="gt_row gt_right">371996</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">31</td>
+<td headers="Female" class="gt_row gt_right">191390</td>
+<td headers="Male" class="gt_row gt_right">183210</td>
+<td headers="Total" class="gt_row gt_right">374597</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">32</td>
+<td headers="Female" class="gt_row gt_right">189587</td>
+<td headers="Male" class="gt_row gt_right">180690</td>
+<td headers="Total" class="gt_row gt_right">370276</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">33</td>
+<td headers="Female" class="gt_row gt_right">189157</td>
+<td headers="Male" class="gt_row gt_right">178995</td>
+<td headers="Total" class="gt_row gt_right">368151</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">34</td>
+<td headers="Female" class="gt_row gt_right">188580</td>
+<td headers="Male" class="gt_row gt_right">179481</td>
+<td headers="Total" class="gt_row gt_right">368059</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">35</td>
+<td headers="Female" class="gt_row gt_right">190000</td>
+<td headers="Male" class="gt_row gt_right">181977</td>
+<td headers="Total" class="gt_row gt_right">371982</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">36</td>
+<td headers="Female" class="gt_row gt_right">190158</td>
+<td headers="Male" class="gt_row gt_right">181228</td>
+<td headers="Total" class="gt_row gt_right">371385</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">37</td>
+<td headers="Female" class="gt_row gt_right">187798</td>
+<td headers="Male" class="gt_row gt_right">180169</td>
+<td headers="Total" class="gt_row gt_right">367966</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">38</td>
+<td headers="Female" class="gt_row gt_right">187792</td>
+<td headers="Male" class="gt_row gt_right">181672</td>
+<td headers="Total" class="gt_row gt_right">369464</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">39</td>
+<td headers="Female" class="gt_row gt_right">181379</td>
+<td headers="Male" class="gt_row gt_right">176649</td>
+<td headers="Total" class="gt_row gt_right">358028</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">40</td>
+<td headers="Female" class="gt_row gt_right">177663</td>
+<td headers="Male" class="gt_row gt_right">174132</td>
+<td headers="Total" class="gt_row gt_right">351793</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">41</td>
+<td headers="Female" class="gt_row gt_right">168852</td>
+<td headers="Male" class="gt_row gt_right">165259</td>
+<td headers="Total" class="gt_row gt_right">334111</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">42</td>
+<td headers="Female" class="gt_row gt_right">165976</td>
+<td headers="Male" class="gt_row gt_right">161850</td>
+<td headers="Total" class="gt_row gt_right">327822</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">43</td>
+<td headers="Female" class="gt_row gt_right">161473</td>
+<td headers="Male" class="gt_row gt_right">157193</td>
+<td headers="Total" class="gt_row gt_right">318666</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">44</td>
+<td headers="Female" class="gt_row gt_right">160469</td>
+<td headers="Male" class="gt_row gt_right">155979</td>
+<td headers="Total" class="gt_row gt_right">316452</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">45</td>
+<td headers="Female" class="gt_row gt_right">160160</td>
+<td headers="Male" class="gt_row gt_right">156315</td>
+<td headers="Total" class="gt_row gt_right">316469</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">46</td>
+<td headers="Female" class="gt_row gt_right">162435</td>
+<td headers="Male" class="gt_row gt_right">156866</td>
+<td headers="Total" class="gt_row gt_right">319301</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">47</td>
+<td headers="Female" class="gt_row gt_right">165415</td>
+<td headers="Male" class="gt_row gt_right">159102</td>
+<td headers="Total" class="gt_row gt_right">324521</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">48</td>
+<td headers="Female" class="gt_row gt_right">169145</td>
+<td headers="Male" class="gt_row gt_right">162263</td>
+<td headers="Total" class="gt_row gt_right">331411</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">49</td>
+<td headers="Female" class="gt_row gt_right">176296</td>
+<td headers="Male" class="gt_row gt_right">167969</td>
+<td headers="Total" class="gt_row gt_right">344265</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">50</td>
+<td headers="Female" class="gt_row gt_right">180288</td>
+<td headers="Male" class="gt_row gt_right">171265</td>
+<td headers="Total" class="gt_row gt_right">351555</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">51</td>
+<td headers="Female" class="gt_row gt_right">166527</td>
+<td headers="Male" class="gt_row gt_right">159536</td>
+<td headers="Total" class="gt_row gt_right">326055</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">52</td>
+<td headers="Female" class="gt_row gt_right">165219</td>
+<td headers="Male" class="gt_row gt_right">157479</td>
+<td headers="Total" class="gt_row gt_right">322696</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">53</td>
+<td headers="Female" class="gt_row gt_right">157854</td>
+<td headers="Male" class="gt_row gt_right">151061</td>
+<td headers="Total" class="gt_row gt_right">308918</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">54</td>
+<td headers="Female" class="gt_row gt_right">153896</td>
+<td headers="Male" class="gt_row gt_right">147829</td>
+<td headers="Total" class="gt_row gt_right">301719</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">55</td>
+<td headers="Female" class="gt_row gt_right">152986</td>
+<td headers="Male" class="gt_row gt_right">146964</td>
+<td headers="Total" class="gt_row gt_right">299951</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">56</td>
+<td headers="Female" class="gt_row gt_right">154497</td>
+<td headers="Male" class="gt_row gt_right">148136</td>
+<td headers="Total" class="gt_row gt_right">302630</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">57</td>
+<td headers="Female" class="gt_row gt_right">159026</td>
+<td headers="Male" class="gt_row gt_right">152124</td>
+<td headers="Total" class="gt_row gt_right">311151</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">58</td>
+<td headers="Female" class="gt_row gt_right">161328</td>
+<td headers="Male" class="gt_row gt_right">154155</td>
+<td headers="Total" class="gt_row gt_right">315483</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">59</td>
+<td headers="Female" class="gt_row gt_right">159838</td>
+<td headers="Male" class="gt_row gt_right">152859</td>
+<td headers="Total" class="gt_row gt_right">312697</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">60</td>
+<td headers="Female" class="gt_row gt_right">159496</td>
+<td headers="Male" class="gt_row gt_right">151398</td>
+<td headers="Total" class="gt_row gt_right">310898</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">61</td>
+<td headers="Female" class="gt_row gt_right">154023</td>
+<td headers="Male" class="gt_row gt_right">144744</td>
+<td headers="Total" class="gt_row gt_right">298774</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">62</td>
+<td headers="Female" class="gt_row gt_right">150933</td>
+<td headers="Male" class="gt_row gt_right">142230</td>
+<td headers="Total" class="gt_row gt_right">293164</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">63</td>
+<td headers="Female" class="gt_row gt_right">148059</td>
+<td headers="Male" class="gt_row gt_right">138192</td>
+<td headers="Total" class="gt_row gt_right">286253</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">64</td>
+<td headers="Female" class="gt_row gt_right">144428</td>
+<td headers="Male" class="gt_row gt_right">134586</td>
+<td headers="Total" class="gt_row gt_right">279015</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">65</td>
+<td headers="Female" class="gt_row gt_right">141386</td>
+<td headers="Male" class="gt_row gt_right">132977</td>
+<td headers="Total" class="gt_row gt_right">274364</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">66</td>
+<td headers="Female" class="gt_row gt_right">138209</td>
+<td headers="Male" class="gt_row gt_right">128006</td>
+<td headers="Total" class="gt_row gt_right">266220</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">67</td>
+<td headers="Female" class="gt_row gt_right">134001</td>
+<td headers="Male" class="gt_row gt_right">123503</td>
+<td headers="Total" class="gt_row gt_right">257505</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">68</td>
+<td headers="Female" class="gt_row gt_right">131874</td>
+<td headers="Male" class="gt_row gt_right">122785</td>
+<td headers="Total" class="gt_row gt_right">254658</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">69</td>
+<td headers="Female" class="gt_row gt_right">127091</td>
+<td headers="Male" class="gt_row gt_right">118630</td>
+<td headers="Total" class="gt_row gt_right">245716</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">70</td>
+<td headers="Female" class="gt_row gt_right">124742</td>
+<td headers="Male" class="gt_row gt_right">116451</td>
+<td headers="Total" class="gt_row gt_right">241192</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">71</td>
+<td headers="Female" class="gt_row gt_right">122106</td>
+<td headers="Male" class="gt_row gt_right">113763</td>
+<td headers="Total" class="gt_row gt_right">235866</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">72</td>
+<td headers="Female" class="gt_row gt_right">117152</td>
+<td headers="Male" class="gt_row gt_right">109314</td>
+<td headers="Total" class="gt_row gt_right">226470</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">73</td>
+<td headers="Female" class="gt_row gt_right">115227</td>
+<td headers="Male" class="gt_row gt_right">108751</td>
+<td headers="Total" class="gt_row gt_right">223976</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">74</td>
+<td headers="Female" class="gt_row gt_right">120261</td>
+<td headers="Male" class="gt_row gt_right">113000</td>
+<td headers="Total" class="gt_row gt_right">233262</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">75</td>
+<td headers="Female" class="gt_row gt_right">97730</td>
+<td headers="Male" class="gt_row gt_right">91699</td>
+<td headers="Total" class="gt_row gt_right">189431</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">76</td>
+<td headers="Female" class="gt_row gt_right">92857</td>
+<td headers="Male" class="gt_row gt_right">85328</td>
+<td headers="Total" class="gt_row gt_right">178187</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">77</td>
+<td headers="Female" class="gt_row gt_right">87125</td>
+<td headers="Male" class="gt_row gt_right">79715</td>
+<td headers="Total" class="gt_row gt_right">166835</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">78</td>
+<td headers="Female" class="gt_row gt_right">77095</td>
+<td headers="Male" class="gt_row gt_right">68829</td>
+<td headers="Total" class="gt_row gt_right">145927</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">79</td>
+<td headers="Female" class="gt_row gt_right">74474</td>
+<td headers="Male" class="gt_row gt_right">67063</td>
+<td headers="Total" class="gt_row gt_right">141538</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">80</td>
+<td headers="Female" class="gt_row gt_right">68073</td>
+<td headers="Male" class="gt_row gt_right">59584</td>
+<td headers="Total" class="gt_row gt_right">127654</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">81</td>
+<td headers="Female" class="gt_row gt_right">64668</td>
+<td headers="Male" class="gt_row gt_right">55647</td>
+<td headers="Total" class="gt_row gt_right">120314</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">82</td>
+<td headers="Female" class="gt_row gt_right">61126</td>
+<td headers="Male" class="gt_row gt_right">50440</td>
+<td headers="Total" class="gt_row gt_right">111569</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">83</td>
+<td headers="Female" class="gt_row gt_right">56215</td>
+<td headers="Male" class="gt_row gt_right">45591</td>
+<td headers="Total" class="gt_row gt_right">101809</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">84</td>
+<td headers="Female" class="gt_row gt_right">52039</td>
+<td headers="Male" class="gt_row gt_right">41213</td>
+<td headers="Total" class="gt_row gt_right">93253</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">85</td>
+<td headers="Female" class="gt_row gt_right">47018</td>
+<td headers="Male" class="gt_row gt_right">36137</td>
+<td headers="Total" class="gt_row gt_right">83149</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">86</td>
+<td headers="Female" class="gt_row gt_right">42276</td>
+<td headers="Male" class="gt_row gt_right">30853</td>
+<td headers="Total" class="gt_row gt_right">73133</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">87</td>
+<td headers="Female" class="gt_row gt_right">37505</td>
+<td headers="Male" class="gt_row gt_right">26722</td>
+<td headers="Total" class="gt_row gt_right">64218</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">88</td>
+<td headers="Female" class="gt_row gt_right">34252</td>
+<td headers="Male" class="gt_row gt_right">23289</td>
+<td headers="Total" class="gt_row gt_right">57544</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">89</td>
+<td headers="Female" class="gt_row gt_right">30416</td>
+<td headers="Male" class="gt_row gt_right">19933</td>
+<td headers="Total" class="gt_row gt_right">50347</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">90</td>
+<td headers="Female" class="gt_row gt_right">28127</td>
+<td headers="Male" class="gt_row gt_right">17462</td>
+<td headers="Total" class="gt_row gt_right">45590</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">91</td>
+<td headers="Female" class="gt_row gt_right">24710</td>
+<td headers="Male" class="gt_row gt_right">14744</td>
+<td headers="Total" class="gt_row gt_right">39450</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">92</td>
+<td headers="Female" class="gt_row gt_right">20510</td>
+<td headers="Male" class="gt_row gt_right">11560</td>
+<td headers="Total" class="gt_row gt_right">32070</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">93</td>
+<td headers="Female" class="gt_row gt_right">17263</td>
+<td headers="Male" class="gt_row gt_right">8812</td>
+<td headers="Total" class="gt_row gt_right">26072</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">94</td>
+<td headers="Female" class="gt_row gt_right">13594</td>
+<td headers="Male" class="gt_row gt_right">6588</td>
+<td headers="Total" class="gt_row gt_right">20181</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">95</td>
+<td headers="Female" class="gt_row gt_right">10520</td>
+<td headers="Male" class="gt_row gt_right">4978</td>
+<td headers="Total" class="gt_row gt_right">15502</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">96</td>
+<td headers="Female" class="gt_row gt_right">8167</td>
+<td headers="Male" class="gt_row gt_right">3312</td>
+<td headers="Total" class="gt_row gt_right">11480</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">97</td>
+<td headers="Female" class="gt_row gt_right">5966</td>
+<td headers="Male" class="gt_row gt_right">2272</td>
+<td headers="Total" class="gt_row gt_right">8238</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">98</td>
+<td headers="Female" class="gt_row gt_right">4208</td>
+<td headers="Male" class="gt_row gt_right">1541</td>
+<td headers="Total" class="gt_row gt_right">5746</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">99</td>
+<td headers="Female" class="gt_row gt_right">2996</td>
+<td headers="Male" class="gt_row gt_right">1083</td>
+<td headers="Total" class="gt_row gt_right">4073</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">100</td>
+<td headers="Female" class="gt_row gt_right">1895</td>
+<td headers="Male" class="gt_row gt_right">538</td>
+<td headers="Total" class="gt_row gt_right">2425</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">101</td>
+<td headers="Female" class="gt_row gt_right">1123</td>
+<td headers="Male" class="gt_row gt_right">324</td>
+<td headers="Total" class="gt_row gt_right">1442</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">102</td>
+<td headers="Female" class="gt_row gt_right">564</td>
+<td headers="Male" class="gt_row gt_right">142</td>
+<td headers="Total" class="gt_row gt_right">703</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">103</td>
+<td headers="Female" class="gt_row gt_right">360</td>
+<td headers="Male" class="gt_row gt_right">78</td>
+<td headers="Total" class="gt_row gt_right">441</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">104</td>
+<td headers="Female" class="gt_row gt_right">216</td>
+<td headers="Male" class="gt_row gt_right">44</td>
+<td headers="Total" class="gt_row gt_right">260</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">105</td>
+<td headers="Female" class="gt_row gt_right">105</td>
+<td headers="Male" class="gt_row gt_right">29</td>
+<td headers="Total" class="gt_row gt_right">130</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">106</td>
+<td headers="Female" class="gt_row gt_right">69</td>
+<td headers="Male" class="gt_row gt_right">3</td>
+<td headers="Total" class="gt_row gt_right">74</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">107</td>
+<td headers="Female" class="gt_row gt_right">20</td>
+<td headers="Male" class="gt_row gt_right">8</td>
+<td headers="Total" class="gt_row gt_right">31</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">108</td>
+<td headers="Female" class="gt_row gt_right">15</td>
+<td headers="Male" class="gt_row gt_right">3</td>
+<td headers="Total" class="gt_row gt_right">25</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">109</td>
+<td headers="Female" class="gt_row gt_right">6</td>
+<td headers="Male" class="gt_row gt_right">0</td>
+<td headers="Total" class="gt_row gt_right">7</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">110</td>
+<td headers="Female" class="gt_row gt_right">4</td>
+<td headers="Male" class="gt_row gt_right">4</td>
+<td headers="Total" class="gt_row gt_right">6</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">111</td>
+<td headers="Female" class="gt_row gt_right">4</td>
+<td headers="Male" class="gt_row gt_right">0</td>
+<td headers="Total" class="gt_row gt_right">4</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">112</td>
+<td headers="Female" class="gt_row gt_right">0</td>
+<td headers="Male" class="gt_row gt_right">0</td>
+<td headers="Total" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">113</td>
+<td headers="Female" class="gt_row gt_right">0</td>
+<td headers="Male" class="gt_row gt_right">0</td>
+<td headers="Total" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">114</td>
+<td headers="Female" class="gt_row gt_right">0</td>
+<td headers="Male" class="gt_row gt_right">0</td>
+<td headers="Total" class="gt_row gt_right">0</td></tr>
+    <tr><td headers="Age" class="gt_row gt_right" style="font-weight: bold;">115</td>
+<td headers="Female" class="gt_row gt_right">0</td>
+<td headers="Male" class="gt_row gt_right">0</td>
+<td headers="Total" class="gt_row gt_right">0</td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p><strong>A word of warning</strong>. As per ABS’ <a href="https://www.abs.gov.au/articles/analysis-non-binary-sex-responses#2021-census-results">own words</a>:</p>
+<blockquote class="blockquote">
+<p>The non-binary sex option was marked on the Census form for 43,220 respondents or 0.17% of the Australian population. Analysis indicates this number is not indicative of any single characteristic. Responses show the concept of non-binary sex was not consistently understood and was perceived in different ways by different people. Results cannot be used as a measure of gender diversity, non-binary genders or trans populations. Additionally, it cannot be used as a measure for diverse sexualities, nor can it be interpreted as the number of people with variations of sex characteristics.</p>
+</blockquote>
+<p>For these reasons and more, I have ignored non-binary sex responses when presenting sex statistics.</p>
+<p>I believe the age data used for the statistics in this document do not include respondents who selected the non-binary sex response.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

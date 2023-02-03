@@ -1,0 +1,230 @@
+---
+title: "Australian's age and sex"
+subtitle: Data from the 2021 national census
+date: 2023-02-03
+date-format: long
+author: Matthew Andreotta
+format:
+    html:
+        theme:  flatly
+echo:   false
+include:    false
+warning:    false
+---
+
+This webpage shares results from the the 2021 Australian census on age and sex.
+This data may be useful for building survey samples representative of Australians.
+In particular, @tbl-age-decades describes the proportion of Australians across age categories and @tbl-sex describes the proportion of Australians across sexes.
+
+Raw count data is provided in @tbl-counts.
+
+# Introduction
+
+In 2021, the Australian Bureau of Statistics (ABS) conducted a census of Australians.
+Methodology can be found on the [ABS' website](https://www.abs.gov.au/census/guide-census-data/census-methodology/2021).
+For age, respondents were asked the person's date of birth or age.
+For sex, respondents were asked to select whether the person was: "male", "female", or "non-binary sex".[^longnote]
+In this document, I have used the same terminology as the census.
+
+[^longnote]: **A word of warning**. As per ABS' [own words](https://www.abs.gov.au/articles/analysis-non-binary-sex-responses#2021-census-results):
+
+    > The non-binary sex option was marked on the Census form for 43,220 respondents or 0.17% of the Australian population. Analysis indicates this number is not indicative of any single characteristic. Responses show the concept of non-binary sex was not consistently understood and was perceived in different ways by different people. Results cannot be used as a measure of gender diversity, non-binary genders or trans populations. Additionally, it cannot be used as a measure for diverse sexualities, nor can it be interpreted as the number of people with variations of sex characteristics.
+
+    For these reasons and more, I have ignored non-binary sex responses when presenting sex statistics.
+
+    I believe the age data used for the statistics in this document do not include respondents who selected the non-binary sex response.
+
+```{r load-packages}
+library(tidyverse) # data wrangling
+library(gt) # tables
+knitr::opts_knit$set(root.dir = '..') # change working directory when render
+```
+
+
+```{r helper-functions}
+specify_decimal <- function(number_to_round, number_of_decimals = 2) {
+    format(
+        round(number_to_round, number_of_decimals),
+        nsmall = number_of_decimals
+    )
+}
+```
+
+```{r load-data}
+data <- read_csv(
+        file = "data/2021_sex-and-age.csv",
+        col_names = c("age", "male", "female", "total"),
+        skip = 1,
+    )
+```
+
+# Proportions
+
+## Age
+
+```{r tbl-age-decades}
+#| include: true
+#| tbl-cap: The total count and proportion of Australian's age, categorised in decade-wide age groups.
+#| label: tbl-age-decades
+data |>
+    mutate(age_group = case_when(
+        age < 30                ~ "18-29",
+        age >= 30 & age < 40    ~ "30-40",
+        age >= 40 & age < 50    ~ "40-50",
+        age >= 50 & age < 60    ~ "50-60",
+        age >= 60 & age < 70    ~ "60-70",
+        age >= 70               ~ "70+",
+    )) |>
+    group_by(age_group) |>
+    summarise(total = sum(total)) |>
+    ungroup() |>
+    mutate(percentage = specify_decimal(total / sum(total) * 100)) |>
+    select(age_group, total, percentage) |>
+    rename_with(str_to_sentence) |>
+    gt() |>
+    tab_style(
+        locations = cells_column_labels(columns = everything()),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_body(columns = "Age_group"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_options(table.border.top.style = "hidden") |>
+    cols_label(
+        Age_group = "Age (Years)",
+        Percentage = "Proportion (%)"    
+    )
+```
+
+## Sex
+
+```{r tbl-sex}
+#| include: true
+#| tbl-cap: The total count and proportion of Australian's sex.
+#| label: tbl-sex
+data |>
+    select(-age, -total) |>
+    summarise(across(everything(), sum)) |>
+    pivot_longer(
+        everything(),
+        names_to = "sex",
+        values_to = "total"
+    ) |>
+    mutate(sex = str_to_sentence(sex)) |>
+    mutate(percentage = specify_decimal(total / sum(total) * 100)) |>
+    select(sex, total, percentage) |>
+    arrange(desc(total)) |>
+    rename_with(str_to_sentence) |>
+    gt() |>
+    tab_style(
+        locations = cells_column_labels(columns = everything()),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_body(columns = "Sex"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_options(table.border.top.style = "hidden") |>
+    cols_label(
+        Percentage = "Proportion (%)"    
+    )
+```
+
+## Age and Sex
+
+```{r tbl-sex-and-age}
+#| include: true
+#| tbl-cap: Sex of Australians as a proportion of each decade-wide age group.
+#| label: tbl-sex-and-age
+data |>
+    mutate(age_group = case_when(
+        age < 30                ~ "18-29",
+        age >= 30 & age < 40    ~ "30-40",
+        age >= 40 & age < 50    ~ "40-50",
+        age >= 50 & age < 60    ~ "50-60",
+        age >= 60 & age < 70    ~ "60-70",
+        age >= 70               ~ "70+",
+    )) |>
+    select(-age, -total) |>
+    group_by(age_group) |>
+    summarise(across(male:female, sum)) |>
+    pivot_longer(
+        male:female,
+        names_to = "sex",
+        values_to = "total"
+    ) |>
+    group_by(age_group) |>
+    mutate(percentage = specify_decimal(total / sum(total) * 100)) |>
+    select(-total) |>
+    pivot_wider(names_from = "sex", values_from = "percentage") |>
+    relocate(female, .before = male) |>
+    ungroup() |>
+    gt() |>
+    tab_spanner(
+        label = "Proportion (%)",
+        columns = c("female", "male"),
+    ) |>
+    tab_options(table.border.top.style = "hidden") |>
+    cols_label(
+        age_group = "Age",
+        male = "Male",
+        female = "Female"
+    ) |>
+    tab_style(
+        locations = cells_body(columns = "age_group"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_column_labels(),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_column_spanners(),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    )
+```
+
+
+# Counts
+
+```{r tbl-counts}
+#| include: true
+#| tbl-cap: Total number of Australians by age and sex.
+#| label: tbl-counts
+
+tbl_counts <- data |>
+    relocate(female, .before = male) |>
+    rename_with(str_to_sentence) |>
+    gt() |>
+    tab_style(
+        locations = cells_column_labels(columns = everything()),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_body(columns = "Age"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_options(table.border.top.style = "hidden") |>
+    cols_label(Age = "Age (Years)")
+
+tbl_counts
+```
