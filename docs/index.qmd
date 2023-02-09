@@ -12,18 +12,20 @@ include:    false
 warning:    false
 ---
 
-This webpage shares results from the the 2021 Australian census on age and sex.
+This webpage shares results from the the 2021 Australian census on age, sex and income.
 This data may be useful for building survey samples representative of Australians.
-In particular, @tbl-age-decades describes the proportion of Australians across age categories and @tbl-sex describes the proportion of Australians across sexes.
+In particular: @tbl-age-decades describes the proportion of Australians across age categories; @tbl-sex describes the proportion of Australians across sexes; and @tbl-income describes the annual household income of Australians.
 
-Raw count data is provided in @tbl-counts.
+Raw count data is provided in @tbl-counts-age-and-gender and @tbl-counts-income.
 
 # Introduction
 
 In 2021, the Australian Bureau of Statistics (ABS) conducted a census of Australians.
 Methodology can be found on the [ABS' website](https://www.abs.gov.au/census/guide-census-data/census-methodology/2021).
-For age, respondents were asked the person's date of birth or age.
+For age, respondents were asked their date of birth or age.
 For sex, respondents were asked to select whether the person was: "male", "female", or "non-binary sex".[^longnote]
+For income, respondents were asked to report their total weekly income.
+To calculate household income, the total weekly income was summed for each resident aged 15 years or older present in the household on Census Night.[^1]
 In this document, I have used the same terminology as the census.
 
 [^longnote]: **A word of warning**. As per ABS' [own words](https://www.abs.gov.au/articles/analysis-non-binary-sex-responses#2021-census-results):
@@ -33,6 +35,8 @@ In this document, I have used the same terminology as the census.
     For these reasons and more, I have ignored non-binary sex responses when presenting sex statistics.
 
     I believe the age data used for the statistics in this document do not include respondents who selected the non-binary sex response.
+
+[^1]: More information available at: https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/income-and-work/equivalised-total-household-income-weekly-hied
 
 ```{r load-packages}
 library(tidyverse) # data wrangling
@@ -56,6 +60,14 @@ data <- read_csv(
         col_names = c("age", "male", "female", "total"),
         skip = 1,
     )
+data_income <- read_csv(
+    file = "data/2021_household-income.csv",
+    col_names = c("income", "total"),
+    col_types = cols_only(
+        income = col_character(),
+        total = col_double()),
+    skip = 11,
+    n_max = 37 - 12)
 ```
 
 # Proportions
@@ -200,12 +212,90 @@ data |>
 ```
 
 
+## Annual income
+
+```{r tbl-income}
+#| include: true
+#| tbl-cap: The total count and proportion of annual household income in Australia.
+#| label: tbl-income
+tbl_income <- data_income |>
+    mutate(income = case_when(
+        income == "Negative income" ~ "less or $-1 (less or $-1)", 
+        income == "Nil income"      ~ "$0-$0 ($0-$0)",
+        TRUE                        ~ income
+    )) |>
+    filter(str_detect(income, "^\\$|^less")) |>
+    separate(
+        income,
+        into = c("income_week", "income"),
+        sep = " \\(") |>
+    select(-income_week) |>
+    mutate(income = str_remove_all(income, "\\)$")) |>
+    separate(
+        income,
+        into = c("low", "high"),
+        sep = "(-\\$)|( or )") |>
+    mutate(
+        across(
+            high:low,
+            ~ as.double(str_remove_all(.x, "\\$|,"))))
+
+
+thresholds_income <- c(
+    26000, 52000, 65000, 78000, 104000, 130000, 156000, 234000
+)
+
+tbl_income  |>
+    mutate(thresholds = low %in% thresholds_income | high %in% thresholds_income) |>
+    mutate(thresholds_code = cumsum(thresholds)) |>
+    group_by(thresholds_code) |>
+    summarise(
+        low = min(low),
+        high = max(high),
+        total = sum(total)
+    ) |>
+    mutate(income = case_when(
+        is.na(low) ~ str_c("$", prettyNum(high, big.mark=","), " or less"),
+        is.na(high) ~ str_c("$", prettyNum(low, big.mark=","), " or more"),
+        TRUE    ~ str_c("$", prettyNum(low, big.mark=","), "-", "$", prettyNum(high, big.mark=","))
+    )) |>
+    select(income, total) |>
+    mutate(percentage = specify_decimal(total / sum(total) * 100)) |>
+    mutate(total = prettyNum(total, big.mark = ",")) |>
+        ungroup() |>
+    gt() |>
+    tab_options(table.border.top.style = "hidden") |>
+    tab_style(
+        locations = cells_body(columns = "income"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_column_labels(),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_column_spanners(),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    )  |>
+    cols_label(
+        income = "Annual household income",
+        total = "Total households",
+        percentage = "Proportion of Households (%)")
+```
+
+
 # Counts
 
-```{r tbl-counts}
+```{r tbl-counts-age-and-gender}
 #| include: true
 #| tbl-cap: Total number of Australians by age and sex.
-#| label: tbl-counts
+#| label: tbl-counts-age-and-gender
 
 tbl_counts <- data |>
     relocate(female, .before = male) |>
@@ -227,4 +317,30 @@ tbl_counts <- data |>
     cols_label(Age = "Age (Years)")
 
 tbl_counts
+```
+
+
+```{r tbl-counts-income}
+#| include: true
+#| tbl-cap: Total income per household.
+#| label: tbl-counts-income
+tbl_counts_income <- data_income |>
+    rename_with(str_to_sentence) |>
+    gt() |>
+    tab_style(
+        locations = cells_column_labels(columns = everything()),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_body(columns = "Income"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_options(table.border.top.style = "hidden") |>
+    cols_label(Income = "Weekly income (annual income)")
+
+tbl_counts_income
 ```
