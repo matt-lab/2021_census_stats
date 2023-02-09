@@ -12,7 +12,7 @@ include:    false
 warning:    false
 ---
 
-This webpage shares results from the the 2021 Australian census on age, sex and income.
+This webpage shares results from the the 2021 Australian census on age, sex, and household income.
 This data may be useful for building survey samples representative of Australians.
 In particular: @tbl-age-decades describes the proportion of Australians across age categories; @tbl-sex describes the proportion of Australians across sexes; and @tbl-income describes the annual household income of Australians.
 
@@ -26,6 +26,7 @@ For age, respondents were asked their date of birth or age.
 For sex, respondents were asked to select whether the person was: "male", "female", or "non-binary sex".[^longnote]
 For income, respondents were asked to report their total weekly income.
 To calculate household income, the total weekly income was summed for each resident aged 15 years or older present in the household on Census Night.[^1]
+
 In this document, I have used the same terminology as the census.
 
 [^longnote]: **A word of warning**. As per ABS' [own words](https://www.abs.gov.au/articles/analysis-non-binary-sex-responses#2021-census-results):
@@ -36,7 +37,7 @@ In this document, I have used the same terminology as the census.
 
     I believe the age data used for the statistics in this document do not include respondents who selected the non-binary sex response.
 
-[^1]: More information available at: https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/income-and-work/equivalised-total-household-income-weekly-hied
+[^1]: More information available at: [https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/income-and-work/equivalised-total-household-income-weekly-hied](https://www.abs.gov.au/census/guide-census-data/census-dictionary/2021/variables-topic/income-and-work/equivalised-total-household-income-weekly-hied).
 
 ```{r load-packages}
 library(tidyverse) # data wrangling
@@ -92,6 +93,7 @@ data |>
     ungroup() |>
     mutate(percentage = specify_decimal(total / sum(total) * 100)) |>
     select(age_group, total, percentage) |>
+    mutate(total = prettyNum(total, big.mark = ",")) |>
     rename_with(str_to_sentence) |>
     gt() |>
     tab_style(
@@ -131,6 +133,7 @@ data |>
     mutate(percentage = specify_decimal(total / sum(total) * 100)) |>
     select(sex, total, percentage) |>
     arrange(desc(total)) |>
+    mutate(total = prettyNum(total, big.mark = ",")) |>
     rename_with(str_to_sentence) |>
     gt() |>
     tab_style(
@@ -298,6 +301,7 @@ tbl_income  |>
 #| label: tbl-counts-age-and-gender
 
 tbl_counts <- data |>
+    mutate(across(any_of(c("female", "male", "total")), prettyNum, big.mark = ",")) |>
     relocate(female, .before = male) |>
     rename_with(str_to_sentence) |>
     gt() |>
@@ -325,6 +329,7 @@ tbl_counts
 #| tbl-cap: Total income per household.
 #| label: tbl-counts-income
 tbl_counts_income <- data_income |>
+    mutate(total = prettyNum(total, big.mark = ",")) |>
     rename_with(str_to_sentence) |>
     gt() |>
     tab_style(
