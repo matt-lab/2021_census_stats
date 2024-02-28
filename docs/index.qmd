@@ -424,6 +424,7 @@ data_education |>
             )
     ) |>
     mutate(education = factor(education, levels = education_level)) |>
+    filter(education != education_level[8]) |>
     group_by(education) |>
     summarise(total = sum(n)) |>
     mutate(percentage = specify_decimal(total / sum(total) * 100)) |>
