@@ -1,11 +1,12 @@
 ---
-title: "Australian's age and sex"
+title: "Characteristics of Australia"
 subtitle: Data from the 2021 national census
 date: 2023-02-03
 date-format: long
 author: Matthew Andreotta
 format:
     html:
+        toc: true
         theme:  flatly
 echo:   false
 include:    false
@@ -53,6 +54,12 @@ specify_decimal <- function(number_to_round, number_of_decimals = 2) {
         nsmall = number_of_decimals
     )
 }
+digit_text_to_number <- function(text) {
+    digit_text <- c(
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
+    )
+    as.integer(match(str_to_lower(text), digit_text) - 1)
+}
 ```
 
 ```{r load-data}
@@ -69,9 +76,35 @@ data_income <- read_csv(
         total = col_double()),
     skip = 11,
     n_max = 37 - 12)
+data_education <- read_csv(
+    file = "data/2021_education.csv",
+    col_names = c("age", "education_code", "n"),
+    col_types = cols_only(
+        education_code = col_character(),
+        age = col_integer(),
+        n = col_integer()),
+    skip = 11,
+    n_max = 1775 - 12
+    ) |>
+    fill(age, .direction = "down") |>
+    mutate(education_code = map(education_code, str_split_1, "")) |>
+    unnest_wider(education_code, names_sep = "_")
+data_dwelling <- read_csv(
+    file = "data/2021_dwellings.csv",
+    col_names = c("dwelling_size", "total"),
+    col_types = cols_only(
+        dwelling_size = col_character(),
+        total = col_integer()),
+    skip = 11,
+    n_max = 21 - 12) |>
+    mutate(dwelling_size = map_chr(dwelling_size, ~ str_split_1(.x, " ")[1])) |>
+    mutate(dwelling_size = digit_text_to_number(dwelling_size)) |>
+    arrange(dwelling_size) |>
+    filter(!is.na(dwelling_size)) 
+
 ```
 
-# Proportions
+# Sex and age
 
 ## Age
 
@@ -154,7 +187,7 @@ data |>
     )
 ```
 
-## Age and Sex
+## Cross-tabulating age and sex
 
 ```{r tbl-sex-and-age}
 #| include: true
@@ -214,8 +247,38 @@ data |>
     )
 ```
 
+```{r tbl-counts-age-and-gender}
+#| include: true
+#| tbl-cap: Total number of Australians by age and sex.
+#| label: tbl-counts-age-and-gender
+
+tbl_counts <- data |>
+    mutate(across(any_of(c("female", "male", "total")), prettyNum, big.mark = ",")) |>
+    relocate(female, .before = male) |>
+    rename_with(str_to_sentence) |>
+    gt() |>
+    tab_style(
+        locations = cells_column_labels(columns = everything()),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_body(columns = "Age"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_options(table.border.top.style = "hidden") |>
+    cols_label(Age = "Age (Years)")
+
+tbl_counts
+```
+
+# Income
 
 ## Annual income
+
 
 ```{r tbl-income}
 #| include: true
@@ -293,36 +356,7 @@ tbl_income  |>
 ```
 
 
-# Counts
-
-```{r tbl-counts-age-and-gender}
-#| include: true
-#| tbl-cap: Total number of Australians by age and sex.
-#| label: tbl-counts-age-and-gender
-
-tbl_counts <- data |>
-    mutate(across(any_of(c("female", "male", "total")), prettyNum, big.mark = ",")) |>
-    relocate(female, .before = male) |>
-    rename_with(str_to_sentence) |>
-    gt() |>
-    tab_style(
-        locations = cells_column_labels(columns = everything()),
-        style = list(
-            cell_text(weight = "bold")
-        )
-    ) |>
-    tab_style(
-        locations = cells_body(columns = "Age"),
-        style = list(
-            cell_text(weight = "bold")
-        )
-    ) |>
-    tab_options(table.border.top.style = "hidden") |>
-    cols_label(Age = "Age (Years)")
-
-tbl_counts
-```
-
+## Weekly income
 
 ```{r tbl-counts-income}
 #| include: true
@@ -348,4 +382,142 @@ tbl_counts_income <- data_income |>
     cols_label(Income = "Weekly income (annual income)")
 
 tbl_counts_income
+```
+
+# Highest level of educational attainment
+
+```{r tbl-education}
+#| include: true
+#| tbl-cap: The total count and proportion of highest level of educational attainment in Australia.
+#| label: tbl-education
+
+education_level <- c(
+    "Doctoral degree",
+    "Postgraduate or masters degree",
+    "Graduate diploma",
+    "Bachelor's degree",
+    "Certificate III or IV, diploma or advanced diploma",
+    "Year 10 or above, or Certificate I or II",
+    "Year 9 or below",
+    "Not stated or specified"
+)
+
+data_education |>
+    mutate(
+        education =
+            case_when(
+                education_code_1 == "1" & education_code_2 == "1"
+                    ~ education_level[1],
+                education_code_1 == "1"
+                    ~ education_level[2],
+                education_code_1 == "2"
+                    ~ education_level[3],
+                education_code_1 == "3"
+                    ~ education_level[4],
+                education_code_1 %in% c("4", "5")
+                    ~ education_level[5],
+                education_code_1 %in% c("6", "7")
+                    ~ education_level[6],
+                education_code_1 == 8
+                    ~ education_level[7],
+                TRUE ~ education_level[8]
+            )
+    ) |>
+    mutate(education = factor(education, levels = education_level)) |>
+    group_by(education) |>
+    summarise(total = sum(n)) |>
+    mutate(percentage = specify_decimal(total / sum(total) * 100)) |>
+    # Build table
+    mutate(total = prettyNum(total, big.mark = ",")) |>
+    gt() |>
+    tab_options(table.border.top.style = "hidden") |>
+    tab_style(
+        locations = cells_body(columns = "education"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_column_labels(),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_column_spanners(),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    )  |>
+    cols_label(
+        education = "Level of highest educational attainment",
+        total = "Total adults",
+        percentage = "Proportion (%)"
+    )
+```
+
+# Household size
+
+```{r}
+#| label: descriptives-household-size
+#| include: false
+
+mean_household_size <-
+    data_dwelling |>
+        mutate(total_people = total * dwelling_size) |>
+        summarise(mean = sum(total_people) / sum(total)) |>
+        pull(mean) |>
+        specify_decimal()
+```
+
+An average of `r mean_household_size` people live in each Australian household.
+
+```{r tbl-household-size}
+#| include: true
+#| tbl-cap: The total count and proportion of the number of people living in each household.
+#| label: tbl-household-size
+
+data_dwelling |>
+    filter(!is.na(dwelling_size)) |>
+    mutate(
+        cumsum_total = rev(cumsum(rev(total))),
+        per_cumsum_total = specify_decimal(cumsum_total / sum(total) * 100)    
+    ) |>
+    mutate(
+        dwelling_size = 
+            str_c(
+                dwelling_size,
+                " or more people"
+            )
+    ) |>
+    # Make table
+    mutate(cumsum_total = prettyNum(cumsum_total, big.mark = ",")) |>
+    gt() |>
+    tab_options(table.border.top.style = "hidden") |>
+    tab_style(
+        locations = cells_body(columns = "dwelling_size"),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_column_labels(),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    ) |>
+    tab_style(
+        locations = cells_column_spanners(),
+        style = list(
+            cell_text(weight = "bold")
+        )
+    )  |>
+    cols_label(
+        dwelling_size = "Household size",
+        cumsum_total = "Total households",
+        per_cumsum_total = "Proportion of households (%)"
+    ) |>
+    cols_hide(
+        total
+    )
 ```
